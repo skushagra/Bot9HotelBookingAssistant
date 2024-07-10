@@ -1,0 +1,105 @@
+.bot9 {
+    width: 100%;
+    height: 100%;
+}
+.topNav {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    padding-left: 4%;
+    color: aliceblue;
+    font-size: 1.1rem;
+}
+.chatScreen {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.charArea {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    overflow-y: scroll;
+}
+
+.charArea::-webkit-scrollbar {
+    width: 0.5rem;
+}
+.inputArea {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.promptInput {
+    width: 65%;
+    height: 70%;
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    padding-left: 15px;
+    font-size: 0.9rem;
+    outline: none;
+    background-color: rgb(66, 66, 66);
+    color: aliceblue;
+}
+
+.promptInput::placeholder {
+    color: rgb(174, 174, 174);
+}
+
+.sendBtn {
+    background-color: rgb(66, 66, 66);
+    height: 70%;
+}
+
+.prompt {
+    width: 100%;
+    height: fit-content;
+    min-height: 4%;
+    color: aliceblue;
+    background-color: rgb(47, 47, 47);
+    font-size: 0.9rem;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 10px;
+}
+.chatBubble {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.system {
+    width: 100%;
+    height: fit-content;
+    padding-top: 10px;
+    color: rgb(174, 174, 174);
+}
+
+.user {
+    width: 100%;
+    height: fit-content;
+    padding-top: 10px;
+    color: rgb(174, 174, 174);
+}
+
+.userTitle {
+    width: 100%;
+    height: fit-content;
+    font-size: 0.9rem;
+    color: rgb(219, 219, 219);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
