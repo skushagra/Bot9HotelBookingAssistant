@@ -10,6 +10,7 @@ A hotel booking assistant for Bot9 Resort. This assistant lets you make reservat
 ```BASH
 cd backend
 npm install
+
 cd ..
 cd frontend
 npm install
@@ -27,4 +28,8 @@ npm start
 
 ## Video Demo
 
+https://github.com/skushagra/Bot9HotelBookingAssistant/assets/66439372/4ffe3a68-c1b3-4e96-abc7-d3859e585967
+
 ## Screenshots
+![image](https://github.com/skushagra/Bot9HotelBookingAssistant/assets/66439372/b4c2b066-c463-4b01-ba57-88b9f395c074)
+
