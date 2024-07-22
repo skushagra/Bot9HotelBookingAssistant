@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import routes from '../routes/routes.js';
+import sequelize from '../models/db.js';
 
 class App {
     constructor() {
@@ -9,6 +10,7 @@ class App {
     }
 
     config() {
+        sequelize.sync();
         this.app.use(express.json());
         this.app.use(cors());
         this.app.use('', routes);

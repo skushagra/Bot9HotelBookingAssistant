@@ -1,13 +1,16 @@
 import openai from 'openai';
 import axios from 'axios';
-
+import Chat from "../models/chat.js"
+import { v4 as uuidv4 } from 'uuid';
+import { OPENAI_KEY } from '../env.js';
 class OpenAI {
     constructor() {
         this.openai = new openai({
-            apiKey: process.env.OPENAI_API_KEY,
+            apiKey: OPENAI_KEY,
         });
 
         this.completion = null;
+        this.sessionToken= uuidv4();
 
         this.chat = [
             { role: "system", content: "You are a helpful assistant." },
@@ -112,6 +115,11 @@ class OpenAI {
 
     async createChatPrompt(prompt) {
         this.chat.push({ role: "user", content: prompt });
+        Chat.create({ 
+            role: "user",
+            message: prompt,
+            sessionToken: this.sessionToken,
+        });
         this.completion = await this.createChatCompletion();
         const message = this.completion.choices[0].message;
 
@@ -119,9 +127,19 @@ class OpenAI {
             const functionCallResponse = await this.handleFunctionOpenAICall(message.function_call);
             this.chat.push({ role: "system", content: JSON.stringify(functionCallResponse) });
             this.completion = this.createChatCompletion();
+            Chat.create({ 
+                role: "system",
+                message: (await this.completion).choices[0].message.content,
+                sessionToken: this.sessionToken,
+            });
             return (await this.completion).choices[0].message.content;
         } else {
             this.chat.push({ role: "system", content: message.content });
+            Chat.create({ 
+                role: "system",
+                message: message.content,
+                sessionToken: this.sessionToken,
+            });
         }
 
         return message.content;
